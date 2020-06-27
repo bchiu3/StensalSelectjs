@@ -100,7 +100,7 @@ getValuefromText(option: string) -> string
 - Gets the value of the element from the first occurence of the label of said element
 
 ```
-getTextromValue(option_value: string) -> string
+getTextfromValue(option_value: string) -> string
 ``` 
 - Parameters
     
@@ -165,7 +165,7 @@ removeValue(option_value: string) -> null
     - Note: if the element removing is the selected element, the value and label of the selected element will be the empty string
 
 ```
-addValue(option: list of string, option_value = []: list of string) -> null
+addValues(option: list of string, option_value = []: list of string) -> null
 ```
 - Parameters
     
