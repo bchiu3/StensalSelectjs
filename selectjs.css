@@ -43,7 +43,7 @@
 }
 .stensal-select-select.open .stensal-select-options {
     opacity: 1;
-    z-index: 4;
+    z-index: 50;
     visibility: visible;
     pointer-events: all;
 }

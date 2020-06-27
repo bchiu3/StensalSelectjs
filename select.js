@@ -224,15 +224,7 @@ const StensalSelect = function(id, options = [], option_values = [], defaultOnCl
         select_element_display.textContent = "";
         select_element.dataset.value = "";
     }
-
-    exports.changeOnClickDefault = function(selectfunc)
-    {
-        for (var i = 0; i < select_element_menu.children.length; ++i)
-        {
-            changeOnClick(i, selectfunc);
-        }
-    }
-
+    
     const changeOnClick = exports.changeOnClick = function(index, selectfunc)
     {
         select_element_menu.children[index].onclick = function()
@@ -379,15 +371,3 @@ const StensalSelect = function(id, options = [], option_values = [], defaultOnCl
 
     return exports;
 }
-
-const configurationSelector = StensalSelect("configuration-selector", ["build", "Edit Configs"], ["build", "edit config"]);
-const changeConfig = function()
-{
-    console.log("config: " + configurationSelector.getCurrentValue() + " is selected.");
-    Cee.coder.update_project_settings(function (model) {
-        model["+configuration-selected"] = configurationSelector.getCurrentValue();
-    });
-};
-configurationSelector.changeOnClickAll(changeConfig);
-configurationSelector.changeOnClickFull(configurationSelector.size()-1, Cee.coder.async_openProjectConfiguration);
-const recordingSelector = StensalSelect("recording-selector", ["Points-to", "Inaccessible"], ["points-to", "inaccessible"]);
