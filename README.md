@@ -35,7 +35,7 @@ StensalSelect(id, options = [], option_values = [], defaultOnClick = null)
 
 Example linking the HTML tag from above:
 ```
-testerSelect = StensalSelect("tester", ["label1", "label2"], ["value1", "value2"], function(){console.log("clicked")});
+var testerSelect = StensalSelect("tester", ["label1", "label2"], ["value1", "value2"], function(){console.log("clicked")});
 ```
 
 ## Member Functions
