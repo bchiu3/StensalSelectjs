@@ -1,14 +1,12 @@
 # StensalSelectjs
  A select-like element used for a bit more customization.
 ## Importing the element
----
 Download the css & js and add this to your html:
 ```
 <link rel="stylesheet" type="text/css" href="path-to-folder/selectjs.css"/>
 <script defer src="path-to-folder/select.js" type="text/javascript" charset="UTF-8"></script>
 ```
 ## Starting/Making the element
------
 On your HTML add a div with any id. Ex:
 
 **Also add a class to create a background color as the standard select does not have one**
@@ -16,6 +14,7 @@ On your HTML add a div with any id. Ex:
 ```
 <div id="tester" class="white-background"></div>
 ```
+
 
 The call to the create the element works like so:
 
@@ -40,9 +39,9 @@ testerSelect = StensalSelect("tester", ["label1", "label2"], ["value1", "value2"
 ```
 
 ## Member Functions
-----
 
 ### Utility Functions
+----
 ```
 size() -> int
 ```
