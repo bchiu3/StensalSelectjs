@@ -1,0 +1,115 @@
+.stensal-select-select-wrapper {
+    position: relative;
+    user-select: none;
+    align-self: stretch;
+    display: flex;
+}
+.stensal-select-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+}
+.stensal-select-select-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px 0 5px;
+    cursor: pointer;
+}
+
+.stensal-select-padding{
+    width: calc(100% + 30*15px);
+}
+
+.stensal-select-options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: 0;
+    opacity: 0;
+    line-height: normal;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+}
+.stensal-select-select.open .stensal-select-options {
+    opacity: 1;
+    z-index: 4;
+    visibility: visible;
+    pointer-events: all;
+}
+.stensal-select-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.edit-configs {
+    background-color: #cf9b29;
+}
+
+.stensal-select-option:hover {
+    cursor: pointer;
+    background-color: #b2b2b2;
+}
+.stensal-select-option.selected {
+    color: #ffffff;
+    background-color: #305c91;
+}
+
+.arrow {
+    position: relative;
+    height: 15px;
+    width: 15px;
+}
+.arrow::before, .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.1em;
+    height: 0.45em;
+    bottom: 0.15em;
+}
+.arrow::before {
+    left: -.125em;
+    transform: rotate(-45deg);
+    background-color: darkgrey;
+}
+.arrow::after {
+    left: .125em;
+    transform: rotate(45deg);
+    background-color: darkgrey;
+}
+
+.stensal-select-disabled{
+    border-color: rgba(0,0,0,0) !important;
+    opacity: 0.4 !important;
+    cursor: default;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.stensal-select-disabled:hover:before {
+    background: transparent !important;
+}
+
+.stensal-select-disabled select {
+    cursor: default !important;
+}
+
+.color{
+    background-color: aquamarine;
+}
