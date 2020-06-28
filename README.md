@@ -40,7 +40,7 @@ var testerSelect = StensalSelect("tester", ["label1", "label2"], ["value1", "val
 
 ## Basic Member Functions
 
-### Main Modification Functions
+## Main Modification Functions
 ```
 addValue(option, option_value = null) -> null
 removeValue(option_value) -> null
@@ -57,7 +57,6 @@ testerSelect.removeValue("value1");
 ```
 
 ## Main Getter Functions
----
 
 ```
 getCurrentValue() -> string
@@ -80,7 +79,7 @@ if (testerSelect.includes("select2"))
 ```
 
 ## Main Setter Functions
----
+
 ```
 setCurrentValue(option_value) -> null
 ```
@@ -92,7 +91,7 @@ testerSelect.setCurrentValue("value2");
 ```
 
 ## Main OnClick Functions 
----
+
 ```
 changeOnClick(index: int, selectfunc: function) -> null
 changeOnClickFull(index: int, selectfunc: function) -> null
