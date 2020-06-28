@@ -38,250 +38,95 @@ Example linking the HTML tag from above:
 var testerSelect = StensalSelect("tester", ["label1", "label2"], ["value1", "value2"], function(){console.log("clicked")});
 ```
 
-## Member Functions
+## Basic Member Functions
 
-### Utility Functions
-----
+### Main Modification Functions
 ```
-size() -> int
+addValue(option, option_value = null) -> null
+removeValue(option_value) -> null
+removeValueAll() ->
 ```
-- Gets the amount of values there are in the select
+Use addValue() to add a value and removeValue() to remove a value. RemoveValueAll() removes all values.
 
-```
-includes(option: string) -> boolean
-```
-- Parameters
-    
-    1. *option*: label of the element
+Note: removeValue() removes based on value of the element and not the text of the element.
 
-- Checks if the option is a member of the select; true if in there, false otherwise
-
+Ex:
 ```
-includesValue(option_value: string) -> boolean
+testerSelect.addValue("label3", "value3");
+testerSelect.removeValue("value1");
 ```
-- Parameters
-    
-    1. *option_value*: value of the element
 
-- Checks if the select has a member with the value of option_value; true if in there, false otherwise
-
-### Getter Functions
+## Main Getter Functions
 ---
+
 ```
 getCurrentValue() -> string
+includes(option) -> boolean
+includesValue(option_value) -> boolean
 ```
-- Gets the value of the selected element
+getCurrentValue() gets the current value of the select. Includes() checks if the text is in the select; includesValue() checks based on value rather than text.
 
+Ex:
 ```
-getValuefromIndex(index: int) -> string
-``` 
-- Parameters
-    
-    1. *index*: index of the element
-
-- Gets the value of the element at the index
-
-```
-getTextfromIndex(index: int) -> string
-``` 
-- Parameters
-    
-    1. *index*: index of the element
-
-- Gets the lable of the element at the index
-
-```
-getValuefromText(option: string) -> string
-``` 
-- Parameters
-    
-    1. *option*: label of the element
-
-- Gets the value of the element from the first occurence of the label of said element
-
-```
-getTextfromValue(option_value: string) -> string
-``` 
-- Parameters
-    
-    1. *option_value*: value of the element
-
-- Gets the label of the element from the value of said element
-
-```
-getIndexof(option: string) -> int
-```
-- Parameters
-    
-    1. *option*: label of the element
-
-- Gets the index of the element from the first occurence of label of said element
-
-```
-getIndexofValue(option_value: string) -> int
-```
-- Parameters
-    
-    1. *option_value*: value of the element
-
-- Gets the index of the element from the value of said element
-
-### Setter Functions
-----
-
-```
-setCurrentValue(option_value: string) -> null
-```
-- Parameters
-    
-    1. *option_value*: value of the element
-
-- Sets the selected value to be the option_value; if option_value is not an element of the select, it will do nothing
-
-### Modifier Functions
-----
-```
-addValue(option: string, option_value = null: string) -> null
-```
-- Parameters
-    
-    1. *option*: label of the element
-    2. *option_value*: value of the element, optional
-
-- Adds a element to the select with label option and value option_value; if given no option_value, the value of the element will be option
-    
-    - Note: if this is the only element in the select, the selected element will have this label and value
-
-```
-removeValue(option_value: string) -> null
+testerSelect.getCurrentValue();
+if (testerSelect.includes("label2"))
+{
+ console.log("label2 here!");
+}
+if (testerSelect.includes("select2"))
+{
+ console.log("select2 here!");
+}
 ```
 
-- Parameters
-
-    1. *option_value*: value of the element
-
-- Removes the element with option_value from the select
-
-    - Note: if the element removing is the selected element, the value and label of the selected element will be the empty string
-
+## Main Setter Functions
+---
 ```
-addValues(option: list of string, option_value = []: list of string) -> null
+setCurrentValue(option_value) -> null
 ```
-- Parameters
-    
-    1. *option*: list of the label of the element
-    2. *option_value*: list of the value of the element, optional
+setCurrentValue() sets the current value of the select. If it's not there, it will do nothing.
 
-- Adds elements to the select equal to the size of option and option_value; if given no option_value, the value of the element will be option
-    
-    - Note: if there is no element in the select initially, the first option and option value will be choosen as the selected element
-
+Ex:
 ```
-removeValues(option_values: list of string) -> null
+testerSelect.setCurrentValue("value2");
 ```
-- Parameters
 
-    1. *option_values*: list of value of the element
-
-- Removes all elements that have a value corresponding to a string in option_values
-
-    - Note: if the element removing is the selected element, the value and label of the selected element will be the empty string
-
-```
-removeValuesAll() -> null
-```
-- Removes all elements from the select and sets the value and label of the selected element to be the empty string
-
+## Main OnClick Functions 
+---
 ```
 changeOnClick(index: int, selectfunc: function) -> null
-```
-- Parameters
-
-    1. *index*: index of the element
-    2. *selectfunc*: function to change to
-
-- Changes the onclick behavior of the element at index to also call selectfunc
-
-    - Note: The function will not override the default action (i.e. changing the selected value).
-
-```
 changeOnClickFull(index: int, selectfunc: function) -> null
 ```
-- Parameters
+changeOnClick() changes the option at index to also call selectfunc when clicked. changeOnClickFull() changes a function at index to call selectfunc when clicked. The difference is that changeOnClick() also makes the default clicking/selecting work while changeOnClickFull() will disable that.
 
-    1. *index*: index of the element
-    2. *selectfunc*: function to change to
-
-- Changes the onclick behavior of the element at index to call selectfunc
-
-    - Note: The function **will** override the default action (i.e. changing the selected value).
-
+Ex:
 ```
-changeOnClickAll(selectfunc: function) -> null
+testerSelect.changeOnClickFull(1, function(){console.log("clicked");})
+testerSelect.changeOnClick(1, function(){console.log("clicked");})
 ```
-- Parameters
 
-    1. *selectfunc*: function to change to
-
-- Changes the onclick behavior of all elements at index to also call selectfunc
-
-    - Note: The function will not override the default action (i.e. changing the selected value).
-
-```
-changeOnClickFullAll(selectfunc: function) -> null
-```
-- Parameters
-
-    1. *selectfunc*: function to change to
-
-- Changes the onclick behavior of all elements at index to call selectfunc
-
-    - Note: The function **will** override the default action (i.e. changing the selected value).
-
+## Main Class Modification Functions
 ```
 addClass(index: int, class_name: string) -> null
-```
-- Parameters
-
-    1. *index*: index of the element
-    2. *class_name*: string of the class name to change to
-
-- Adds a class to the element at index based on class_name, does nothing if already assigned to the element
-
-```
 removeClass(index: int, class_name: string) -> null
 ```
-- Parameters
+addClass() adds a class class_name to the element at index. removeClass() removes that class at the element in index; if the class doesn't exist in that element, it does nothing.
 
-    1. *index*: index of the element
-    2. *class_name*: string of the class name to change to
-
-- Removes a class to the element at index based on class_name, does nothing if class not in the element
-
+Ex:
 ```
-addClassAll(class_name: string) -> null
+testerSelect.addClass(0, "blue-background");
+testerSelect.removeClass(0, "blue-background");
 ```
-- Parameters
 
-    1. *class_name*: string of the class name to change to
-
-- Adds a class to all elements of the select based on class_name, does nothing if already assigned to the element
-
-```
-removeClassAll(class_name: string) -> null
-```
-- Parameters
-
-    1. *class_name*: string of the class name to change to
-
-- Removes a class to all elements of the select based on class_name, does nothing if class not in the element
-
+## Main Disabling Functions
 ```
 disable() -> null
-```
-- Disables the select such that the options will not show
-
-```
 enable() -> null
 ```
-- Enables the select if the select was previously disabled
+disable() disables the select as it would in a normal select element. enable() enables it back. Both calls will do nothing if it is disabled/enabled already.
+
+Ex:
+```
+testerSelect.disable();
+testerSelect.enable();
+```
