@@ -44,7 +44,7 @@ var testerSelect = StensalSelect("tester", ["label1", "label2"], ["value1", "val
 ```
 addValue(option, option_value = null) -> null
 removeValue(option_value) -> null
-removeValueAll() ->
+removeValueAll() -> null
 ```
 Use addValue() to add a value and removeValue() to remove a value. RemoveValueAll() removes all values.
 
