@@ -11,18 +11,24 @@
     align-self: center;
     min-width: -moz-fit-content;
     min-width: fit-content;
+    height: 100%;
+    width: 100%;
 }
 .stensal-select-select-trigger {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px 0 5px;
+    padding: 0 1.5em 0 5px;
     cursor: pointer;
+    height: 100%;
 }
 
 .stensal-select-padding{
-    width: calc(100% + 30*15px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .stensal-select-options {
@@ -68,25 +74,23 @@
     background-color: #305c91;
 }
 
-.arrow {
+.stensal-select-arrow {
     position: relative;
-    height: 15px;
-    width: 15px;
 }
-.arrow::before, .arrow::after {
+.stensal-select-arrow::before, .stensal-select-arrow::after {
     content: "";
     position: absolute;
-    bottom: 0px;
+    top: -0.1em;
     width: 0.1em;
     height: 0.45em;
-    bottom: 0.15em;
+    margin-left: 0.6em;
 }
-.arrow::before {
+.stensal-select-arrow::before {
     left: -.125em;
     transform: rotate(-45deg);
     background-color: darkgrey;
 }
-.arrow::after {
+.stensal-select-arrow::after {
     left: .125em;
     transform: rotate(45deg);
     background-color: darkgrey;

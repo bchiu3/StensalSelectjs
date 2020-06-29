@@ -6,7 +6,7 @@ const StensalSelect = function(id, options = [], option_values = [], defaultOnCl
 
     const addHTML = function()
     {
-        select_element.innerHTML = '<div class="stensal-select-select"> <div class="stensal-select-select-trigger"> <span class="stensal-select-padding"> </span> <div class="arrow"></div></div><div class="stensal-select-options"></div></div>';
+        select_element.innerHTML = '<div class="stensal-select-select"> <div class="stensal-select-select-trigger"> <span class="stensal-select-padding"> </span> <div class="stensal-select-arrow"></div></div><div class="stensal-select-options"></div></div>';
         const select_element_menu = select_element.getElementsByClassName('stensal-select-options')[0];
         for (var i = 0; i < select_element.classList.length; ++i)
         {
