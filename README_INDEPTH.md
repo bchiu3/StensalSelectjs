@@ -1,5 +1,8 @@
 # StensalSelectjs
  A select-like element used for a bit more customization.
+ 
+ Based on https://andrejgajdos.com/custom-select-dropdown/
+ 
 ## Importing the element
 Download the css & js and add this to your html:
 ```
